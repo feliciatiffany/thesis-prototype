@@ -1,0 +1,3351 @@
+{
+  "_note": "All content is study material for the researcher to review before a real session. Products are fictional. Verdicts are true only relative to the passages in the same scenario. Scenarios 2 and 3 are draft conversations to review before a session. Do not store quadrants here.",
+  "scenarios": [
+    {
+      "id": "s1",
+      "brief": "You commute 18 km each way, with a steep hill, and can't charge at work unless the battery comes off. You're choosing between the Volta S2 and the Kestrel Urban.",
+      "decision": {
+        "prompt": "Which bike will you choose?",
+        "options": [
+          {
+            "id": "volta",
+            "label": "Volta S2"
+          },
+          {
+            "id": "kestrel",
+            "label": "Kestrel Urban"
+          }
+        ],
+        "correct_option": "volta",
+        "rationale_claim_ids": [
+          "s1c1",
+          "s1c4"
+        ]
+      },
+      "claims": [
+        {
+          "id": "s1c1",
+          "text": "The Volta S2 has a range of about 60 km.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s1p1"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "volta",
+          "source_says": "about 60 km",
+          "key_span": "60 km",
+          "branches": [
+            {
+              "value": "60 km",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s1c2",
+          "text": "The Kestrel Urban gets up to 70 km per charge.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": [
+              "45 km"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": [
+            "s1p2"
+          ],
+          "is_planted_error": true,
+          "key_claim": true,
+          "supports_option": "kestrel",
+          "source_says": "45 km",
+          "key_span": "70 km",
+          "branches": [
+            {
+              "value": "70 km",
+              "count": 8
+            },
+            {
+              "value": "45 km",
+              "count": 2,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s1c3",
+          "text": "The Kestrel Urban weighs 19 kg.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s1p2"
+          ],
+          "is_planted_error": false,
+          "key_claim": false,
+          "supports_option": "kestrel",
+          "source_says": "19 kg",
+          "key_span": "19 kg",
+          "branches": [
+            {
+              "value": "19 kg",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s1c4",
+          "text": "The Volta uses a mid-drive motor, which handles hills better.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": [
+              "hub motor"
+            ]
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s1p1",
+            "s1p3"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "volta",
+          "source_says": "mid-drive",
+          "key_span": "mid-drive motor",
+          "branches": [
+            {
+              "value": "mid-drive motor",
+              "count": 4,
+              "source": "support"
+            },
+            {
+              "value": "hub motor",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "id": "s1c5",
+          "text": "The Kestrel's battery is removable, so you could charge it at work.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": [
+              "fixed"
+            ]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": true,
+          "key_claim": true,
+          "supports_option": "kestrel",
+          "key_span": "removable",
+          "branches": [
+            {
+              "value": "removable",
+              "count": 8
+            },
+            {
+              "value": "fixed",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "id": "s1c6",
+          "text": "The Volta comes with a 5-year warranty.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "2-year",
+              "3-year"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": [
+            "s1p1"
+          ],
+          "is_planted_error": true,
+          "key_claim": false,
+          "supports_option": "volta",
+          "source_says": "2 years",
+          "key_span": "5-year",
+          "branches": [
+            {
+              "value": "5-year",
+              "count": 3
+            },
+            {
+              "value": "2-year",
+              "count": 4,
+              "source": "support"
+            },
+            {
+              "value": "3-year",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "id": "s1c7",
+          "text": "The Kestrel is about €400 cheaper (€2,090 vs €2,490).",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s1p3"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "kestrel",
+          "source_says": "€2,090 vs €2,490",
+          "key_span": "€400",
+          "branches": [
+            {
+              "value": "€400",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s1c8",
+          "text": "Some riders say the Volta's brakes squeak in the rain.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "no complaints"
+            ]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "key_claim": false,
+          "supports_option": "kestrel",
+          "key_span": "squeak",
+          "branches": [
+            {
+              "value": "squeak",
+              "count": 3
+            },
+            {
+              "value": "no complaints",
+              "count": 7
+            }
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "s1p1",
+          "source_title": "Volta S2 spec sheet",
+          "text": "The Volta S2 lists a range of about 60 km on a mixed ride. It uses a mid-drive motor, which the maker says holds speed more steadily on hills. The bike is priced at €2,490 and comes with a 2-year warranty."
+        },
+        {
+          "id": "s1p2",
+          "source_title": "Kestrel Urban spec sheet",
+          "text": "The Kestrel Urban lists a range of 45 km per charge. The bike weighs 19 kg and is priced at €2,090. The sheet describes the frame, the display, and the charger, and it does not say whether the battery can be taken off the bike."
+        },
+        {
+          "id": "s1p3",
+          "source_title": "Side-by-side review",
+          "text": "A short review compares the two city bikes. It notes that the Kestrel Urban is about €400 cheaper, at €2,090 against the Volta S2 at €2,490. It also describes the Volta's mid-drive motor as the one that handles hills better."
+        }
+      ],
+      "extra_passages": [
+        {
+          "id": "s1e1",
+          "source_title": "Rider forum",
+          "text": "On a rider forum, a few owners wrote that the Volta's brakes squeak in the rain. The posts are anecdotes and are not part of either spec sheet. Nobody in the thread measured how often it happens."
+        }
+      ],
+      "start_node": "n_start",
+      "fallback_node": "n_fallback",
+      "nodes": [
+        {
+          "id": "n_start",
+          "source_ids": [
+            "s1p1",
+            "s1p2",
+            "s1p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "Happy to help you choose. For a hilly 18 km commute, I'd lean toward the Kestrel Urban. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c7"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c5"
+            },
+            {
+              "kind": "text",
+              "text": " The Volta S2 is still on my list, though. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c1"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c4"
+            },
+            {
+              "kind": "text",
+              "text": " Tell me what you want to check before you decide."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "What about warranty?",
+              "goto": "n_warranty"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_range",
+          "about_claim": "s1c2",
+          "source_ids": [
+            "s1p1",
+            "s1p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "Let me look at range again. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c1"
+            },
+            {
+              "kind": "text",
+              "text": " Those are the figures that keep coming up. A steep hill will use more than a flat-road number, so it's fair to press on this."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "What about warranty?",
+              "goto": "n_warranty"
+            },
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_charging",
+          "about_claim": "s1c5",
+          "source_ids": [
+            "s1p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "Charging at work depends on whether the battery comes inside with you. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c5"
+            },
+            {
+              "kind": "text",
+              "text": " That's the point I keep coming back to. I don't have a second detail here about a lock or a release."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_hills",
+          "source_ids": [
+            "s1p1",
+            "s1p2",
+            "s1p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "The climb is the part I'd think hardest about. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c4"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c3"
+            },
+            {
+              "kind": "text",
+              "text": " Weight matters if you lift the bike. The motor is what helps while you're riding."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "What about warranty?",
+              "goto": "n_warranty"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_warranty",
+          "about_claim": "s1c6",
+          "source_ids": [
+            "s1p1"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "Warranty and small annoyances are the other things people ask about. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c6"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c8"
+            },
+            {
+              "kind": "text",
+              "text": " Neither of those replaces the commute itself, but both are worth a look."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_why_unsure",
+          "about_claim": "s1c2",
+          "about_claims": [
+            "s1c2",
+            "s1c5",
+            "s1c4"
+          ],
+          "source_ids": [
+            "s1p1",
+            "s1p2",
+            "s1p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "A few of these points didn't come out the same way every time I answered, and the sources don't always match the sentence I used. On range, the answer I repeated was 70 km for the Kestrel, while the spec sheet says 45 km. On charging at work, I kept saying the Kestrel battery comes off, but the sheets don't actually cover that. On the motor, some answers said hub motor and others mid-drive; the Volta sheet says mid-drive. I can walk through any of those. I won't pick the bike for you."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_more_sources",
+          "source_ids": [
+            "s1e1"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I looked past the two spec sheets. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c8"
+            },
+            {
+              "kind": "text",
+              "text": " That note is from a rider forum, not from the product pages. It doesn't settle the range or the battery."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_summary",
+          "source_ids": [
+            "s1p1",
+            "s1p2",
+            "s1p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "If I put it in one place, I'd still suggest the Kestrel Urban. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c7"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s1c5"
+            },
+            {
+              "kind": "text",
+              "text": " Your hill and whether you can charge at work are the pieces I'd weigh against that. The choice is yours."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_fallback",
+          "source_ids": [],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I can help with the two bikes' range, price, weight, charging and warranty. What would you like to know?"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the range?",
+              "goto": "n_range"
+            },
+            {
+              "label": "Can I charge it at work?",
+              "goto": "n_charging"
+            },
+            {
+              "label": "Which is better for hills?",
+              "goto": "n_hills"
+            },
+            {
+              "label": "What about warranty?",
+              "goto": "n_warranty"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "not sure",
+                "doubt",
+                "disagree",
+                "varied"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "squeak",
+                "more sources",
+                "another source",
+                "look further"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "range",
+                "km",
+                "kilomet",
+                "how far"
+              ],
+              "goto": "n_range"
+            },
+            {
+              "keywords": [
+                "charg",
+                "at work",
+                "removable",
+                "comes off",
+                "battery"
+              ],
+              "goto": "n_charging"
+            },
+            {
+              "keywords": [
+                "hill",
+                "climb",
+                "motor",
+                "steep"
+              ],
+              "goto": "n_hills"
+            },
+            {
+              "keywords": [
+                "warrant",
+                "guarantee"
+              ],
+              "goto": "n_warranty"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which to buy",
+                "which bike",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "brief": "You need a phone plan for a 10-day trip. You're choosing between Lumen Roam and Harbor Weekly.",
+      "decision": {
+        "prompt": "Which plan will you choose?",
+        "options": [
+          {
+            "id": "lumen",
+            "label": "Lumen Roam"
+          },
+          {
+            "id": "harbor",
+            "label": "Harbor Weekly"
+          }
+        ],
+        "correct_option": "lumen",
+        "rationale_claim_ids": [
+          "s2c1",
+          "s2c4"
+        ]
+      },
+      "claims": [
+        {
+          "id": "s2c1",
+          "text": "Lumen Roam includes 15 GB of data.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s2p1"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "lumen",
+          "source_says": "15 GB",
+          "key_span": "15 GB",
+          "branches": [
+            {
+              "value": "15 GB",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s2c2",
+          "text": "Harbor Weekly includes unlimited data.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": [
+              "8 GB"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": [
+            "s2p2"
+          ],
+          "is_planted_error": true,
+          "key_claim": true,
+          "supports_option": "harbor",
+          "source_says": "8 GB",
+          "key_span": "unlimited data",
+          "branches": [
+            {
+              "value": "unlimited data",
+              "count": 8
+            },
+            {
+              "value": "8 GB",
+              "count": 2,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s2c3",
+          "text": "Harbor Weekly costs €25.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s2p2"
+          ],
+          "is_planted_error": false,
+          "key_claim": false,
+          "supports_option": "harbor",
+          "source_says": "€25",
+          "key_span": "€25",
+          "branches": [
+            {
+              "value": "€25",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s2c4",
+          "text": "Lumen Roam lets you keep your number.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": [
+              "new number"
+            ]
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s2p1"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "lumen",
+          "source_says": "keep your number",
+          "key_span": "keep your number",
+          "branches": [
+            {
+              "value": "keep your number",
+              "count": 4,
+              "source": "support"
+            },
+            {
+              "value": "new number",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "id": "s2c5",
+          "text": "Harbor Weekly includes a pocket hotspot.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": [
+              "no hotspot"
+            ]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": true,
+          "key_claim": true,
+          "supports_option": "harbor",
+          "key_span": "pocket hotspot",
+          "branches": [
+            {
+              "value": "pocket hotspot",
+              "count": 8
+            },
+            {
+              "value": "no hotspot",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "id": "s2c6",
+          "text": "Lumen Roam has a 30-day cooling-off period.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "14 days"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": [
+            "s2p1"
+          ],
+          "is_planted_error": true,
+          "key_claim": false,
+          "supports_option": "lumen",
+          "source_says": "14 days",
+          "key_span": "30-day",
+          "branches": [
+            {
+              "value": "30-day",
+              "count": 3
+            },
+            {
+              "value": "14 days",
+              "count": 7,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s2c7",
+          "text": "Harbor Weekly is €20 cheaper.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s2p3"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "harbor",
+          "source_says": "€20 cheaper",
+          "key_span": "€20",
+          "branches": [
+            {
+              "value": "€20",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s2c8",
+          "text": "Some travelers say Lumen Roam drops calls indoors.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "no complaints"
+            ]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "key_claim": false,
+          "supports_option": "harbor",
+          "key_span": "drops calls",
+          "branches": [
+            {
+              "value": "drops calls",
+              "count": 3
+            },
+            {
+              "value": "no complaints",
+              "count": 7
+            }
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "s2p1",
+          "source_title": "Lumen Roam sheet",
+          "text": "Lumen Roam includes 15 GB of data and lets you keep your number. The cooling-off period is 14 days. The sheet does not mention indoor call drops."
+        },
+        {
+          "id": "s2p2",
+          "source_title": "Harbor Weekly sheet",
+          "text": "Harbor Weekly includes 8 GB of data and costs €25. The sheet does not mention a pocket hotspot."
+        },
+        {
+          "id": "s2p3",
+          "source_title": "Plan comparison",
+          "text": "Harbor Weekly is €20 cheaper than Lumen Roam for a 10-day trip. The note compares price only."
+        }
+      ],
+      "extra_passages": [
+        {
+          "id": "s2e1",
+          "source_title": "Traveler forum",
+          "text": "A forum thread says some people on Lumen Roam dropped calls indoors. The posts are anecdotes and are not in the plan sheets."
+        }
+      ],
+      "start_node": "n_start",
+      "fallback_node": "n_fallback",
+      "nodes": [
+        {
+          "id": "n_start",
+          "source_ids": [
+            "s2p1",
+            "s2p2",
+            "s2p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "For this trip I'd lean toward Harbor Weekly. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c7"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c5"
+            },
+            {
+              "kind": "text",
+              "text": " Lumen Roam is the other plan. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c1"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c4"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the data?",
+              "goto": "n_data"
+            },
+            {
+              "label": "Does it include a hotspot?",
+              "goto": "n_hotspot"
+            },
+            {
+              "label": "Can I keep my number?",
+              "goto": "n_number"
+            },
+            {
+              "label": "What about the terms?",
+              "goto": "n_terms"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "drops"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_data",
+          "about_claim": "s2c2",
+          "source_ids": [
+            "s2p1",
+            "s2p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "On data, I'll say it again. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c1"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Does it include a hotspot?",
+              "goto": "n_hotspot"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "drops"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_hotspot",
+          "about_claim": "s2c5",
+          "source_ids": [
+            "s2p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "About the hotspot. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c5"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the data?",
+              "goto": "n_data"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "drops"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_number",
+          "source_ids": [
+            "s2p1",
+            "s2p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "On keeping your number. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c4"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c3"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the data?",
+              "goto": "n_data"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "drops"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_terms",
+          "about_claim": "s2c6",
+          "source_ids": [
+            "s2p1"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "On the terms and the rumors. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c6"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c8"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "drops"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_why_unsure",
+          "about_claim": "s2c2",
+          "about_claims": [
+            "s2c2",
+            "s2c5",
+            "s2c4"
+          ],
+          "source_ids": [
+            "s2p1",
+            "s2p2",
+            "s2p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "Some answers varied, and the sheets don't always match the sentence I used. I won't choose the plan for you."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the data?",
+              "goto": "n_data"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "drops"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_more_sources",
+          "source_ids": [
+            "s2e1"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I looked past the plan sheets. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c8"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_summary",
+          "source_ids": [
+            "s2p1",
+            "s2p2",
+            "s2p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I'd still suggest Harbor Weekly. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c7"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s2c5"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the data?",
+              "goto": "n_data"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_fallback",
+          "source_ids": [],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I can help with data, hotspot, price, number, and terms. What would you like to know?"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the data?",
+              "goto": "n_data"
+            },
+            {
+              "label": "Does it include a hotspot?",
+              "goto": "n_hotspot"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "data",
+                "gb",
+                "unlimited"
+              ],
+              "goto": "n_data"
+            },
+            {
+              "keywords": [
+                "hotspot",
+                "tether"
+              ],
+              "goto": "n_hotspot"
+            },
+            {
+              "keywords": [
+                "number",
+                "keep"
+              ],
+              "goto": "n_number"
+            },
+            {
+              "keywords": [
+                "terms",
+                "cooling",
+                "cancel"
+              ],
+              "goto": "n_terms"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which plan",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "brief": "You have a nut allergy and you're choosing between Nourish Box and Field Table for weekly meals.",
+      "decision": {
+        "prompt": "Which meal kit will you choose?",
+        "options": [
+          {
+            "id": "nourish",
+            "label": "Nourish Box"
+          },
+          {
+            "id": "field",
+            "label": "Field Table"
+          }
+        ],
+        "correct_option": "nourish",
+        "rationale_claim_ids": [
+          "s3c1",
+          "s3c4"
+        ]
+      },
+      "claims": [
+        {
+          "id": "s3c1",
+          "text": "Nourish Box marks every meal nut-free.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s3p1"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "nourish",
+          "source_says": "nut-free",
+          "key_span": "nut-free",
+          "branches": [
+            {
+              "value": "nut-free",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s3c2",
+          "text": "Field Table cooks in a dedicated nut-free kitchen.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": [
+              "shared kitchen"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": [
+            "s3p2"
+          ],
+          "is_planted_error": true,
+          "key_claim": true,
+          "supports_option": "field",
+          "source_says": "shared kitchen",
+          "key_span": "dedicated nut-free kitchen",
+          "branches": [
+            {
+              "value": "dedicated nut-free kitchen",
+              "count": 8
+            },
+            {
+              "value": "shared kitchen",
+              "count": 2,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s3c3",
+          "text": "Field Table costs €55 a week.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s3p2"
+          ],
+          "is_planted_error": false,
+          "key_claim": false,
+          "supports_option": "field",
+          "source_says": "€55",
+          "key_span": "€55",
+          "branches": [
+            {
+              "value": "€55",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s3c4",
+          "text": "Nourish Box labels sesame separately from nuts.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": [
+              "no sesame label"
+            ]
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s3p1"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "nourish",
+          "source_says": "sesame labeled separately",
+          "key_span": "sesame",
+          "branches": [
+            {
+              "value": "sesame",
+              "count": 4,
+              "source": "support"
+            },
+            {
+              "value": "no sesame label",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "id": "s3c5",
+          "text": "Field Table can leave out peanuts on request.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": [
+              "no custom orders"
+            ]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": true,
+          "key_claim": true,
+          "supports_option": "field",
+          "key_span": "leave out peanuts",
+          "branches": [
+            {
+              "value": "leave out peanuts",
+              "count": 8
+            },
+            {
+              "value": "no custom orders",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "id": "s3c6",
+          "text": "Nourish Box offers a 6-week pause for free.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "2 weeks"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": [
+            "s3p1"
+          ],
+          "is_planted_error": true,
+          "key_claim": false,
+          "supports_option": "nourish",
+          "source_says": "2 weeks",
+          "key_span": "6-week",
+          "branches": [
+            {
+              "value": "6-week",
+              "count": 3
+            },
+            {
+              "value": "2 weeks",
+              "count": 7,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s3c7",
+          "text": "Field Table is €15 cheaper each week.",
+          "consistency": {
+            "agree": 10,
+            "total": 10,
+            "alternatives": []
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": [
+            "s3p3"
+          ],
+          "is_planted_error": false,
+          "key_claim": true,
+          "supports_option": "field",
+          "source_says": "€15 cheaper",
+          "key_span": "€15",
+          "branches": [
+            {
+              "value": "€15",
+              "count": 10,
+              "source": "support"
+            }
+          ]
+        },
+        {
+          "id": "s3c8",
+          "text": "Some subscribers say Nourish Box meals arrive warm.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "arrives cold"
+            ]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "key_claim": false,
+          "supports_option": "field",
+          "key_span": "arrive warm",
+          "branches": [
+            {
+              "value": "arrive warm",
+              "count": 3
+            },
+            {
+              "value": "arrives cold",
+              "count": 7
+            }
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "id": "s3p1",
+          "source_title": "Nourish Box sheet",
+          "text": "Nourish Box marks every meal nut-free and labels sesame separately. A pause is free for 2 weeks. The sheet does not mention delivery temperature."
+        },
+        {
+          "id": "s3p2",
+          "source_title": "Field Table sheet",
+          "text": "Field Table costs €55 a week and cooks in a shared kitchen that also handles nuts. The sheet does not say you can leave peanuts out."
+        },
+        {
+          "id": "s3p3",
+          "source_title": "Kit comparison",
+          "text": "Field Table is €15 cheaper each week than Nourish Box. The note compares price only."
+        }
+      ],
+      "extra_passages": [
+        {
+          "id": "s3e1",
+          "source_title": "Subscriber forum",
+          "text": "A forum post says some Nourish Box meals arrived warm. The post is not in the product sheets."
+        }
+      ],
+      "start_node": "n_start",
+      "fallback_node": "n_fallback",
+      "nodes": [
+        {
+          "id": "n_start",
+          "source_ids": [
+            "s3p1",
+            "s3p2",
+            "s3p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "With a nut allergy I'd lean toward Field Table. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c7"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c5"
+            },
+            {
+              "kind": "text",
+              "text": " Nourish Box is the other kit. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c1"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c4"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the kitchen?",
+              "goto": "n_kitchen"
+            },
+            {
+              "label": "Can they leave nuts out?",
+              "goto": "n_request"
+            },
+            {
+              "label": "How are allergens labeled?",
+              "goto": "n_labels"
+            },
+            {
+              "label": "What about pausing?",
+              "goto": "n_pause"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "warm"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "request",
+                "leave out",
+                "peanut"
+              ],
+              "goto": "n_request"
+            },
+            {
+              "keywords": [
+                "label",
+                "sesame",
+                "allergen"
+              ],
+              "goto": "n_labels"
+            },
+            {
+              "keywords": [
+                "pause",
+                "cancel",
+                "week"
+              ],
+              "goto": "n_pause"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_kitchen",
+          "about_claim": "s3c2",
+          "source_ids": [
+            "s3p1",
+            "s3p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "On the kitchen, I'll repeat it. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c1"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Can they leave nuts out?",
+              "goto": "n_request"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "warm"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "request",
+                "leave out",
+                "peanut"
+              ],
+              "goto": "n_request"
+            },
+            {
+              "keywords": [
+                "label",
+                "sesame",
+                "allergen"
+              ],
+              "goto": "n_labels"
+            },
+            {
+              "keywords": [
+                "pause",
+                "cancel",
+                "week"
+              ],
+              "goto": "n_pause"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_request",
+          "about_claim": "s3c5",
+          "source_ids": [
+            "s3p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "About leaving nuts out. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c5"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the kitchen?",
+              "goto": "n_kitchen"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "request",
+                "leave out",
+                "peanut"
+              ],
+              "goto": "n_request"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_labels",
+          "source_ids": [
+            "s3p1",
+            "s3p2"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "On the labels. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c4"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c3"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the kitchen?",
+              "goto": "n_kitchen"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "label",
+                "sesame",
+                "allergen"
+              ],
+              "goto": "n_labels"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_pause",
+          "about_claim": "s3c6",
+          "source_ids": [
+            "s3p1"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "On pausing and delivery rumors. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c6"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c8"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Look for more sources",
+              "goto": "n_more_sources"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "forum",
+                "more sources",
+                "warm"
+              ],
+              "goto": "n_more_sources"
+            },
+            {
+              "keywords": [
+                "pause",
+                "cancel",
+                "week"
+              ],
+              "goto": "n_pause"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_why_unsure",
+          "about_claim": "s3c2",
+          "about_claims": [
+            "s3c2",
+            "s3c5",
+            "s3c4"
+          ],
+          "source_ids": [
+            "s3p1",
+            "s3p2",
+            "s3p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "Some answers varied, and the sheets don't always match the sentence I used. I won't choose the kit for you."
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the kitchen?",
+              "goto": "n_kitchen"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_more_sources",
+          "source_ids": [
+            "s3e1"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I looked past the product sheets. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c8"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_summary",
+          "source_ids": [
+            "s3p1",
+            "s3p2",
+            "s3p3"
+          ],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I'd still suggest Field Table. "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c7"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c2"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "claim",
+              "claim_id": "s3c5"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the kitchen?",
+              "goto": "n_kitchen"
+            },
+            {
+              "label": "Why are you unsure about this?",
+              "goto": "n_why_unsure",
+              "condition": "D"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        },
+        {
+          "id": "n_fallback",
+          "source_ids": [],
+          "segments": [
+            {
+              "kind": "text",
+              "text": "I can help with the kitchen, labels, price, pauses, and custom orders. What would you like to know?"
+            }
+          ],
+          "chips": [
+            {
+              "label": "Are you sure about the kitchen?",
+              "goto": "n_kitchen"
+            },
+            {
+              "label": "Can they leave nuts out?",
+              "goto": "n_request"
+            },
+            {
+              "label": "Summarize which to buy",
+              "goto": "n_summary"
+            }
+          ],
+          "intents": [
+            {
+              "keywords": [
+                "unsure",
+                "doubt",
+                "disagree"
+              ],
+              "goto": "n_why_unsure"
+            },
+            {
+              "keywords": [
+                "kitchen",
+                "dedicated",
+                "shared"
+              ],
+              "goto": "n_kitchen"
+            },
+            {
+              "keywords": [
+                "request",
+                "leave out",
+                "peanut"
+              ],
+              "goto": "n_request"
+            },
+            {
+              "keywords": [
+                "label",
+                "sesame",
+                "allergen"
+              ],
+              "goto": "n_labels"
+            },
+            {
+              "keywords": [
+                "pause",
+                "cancel",
+                "week"
+              ],
+              "goto": "n_pause"
+            },
+            {
+              "keywords": [
+                "summar",
+                "which kit",
+                "recommend"
+              ],
+              "goto": "n_summary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

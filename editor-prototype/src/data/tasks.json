@@ -1,0 +1,502 @@
+{
+  "_note": "All content is study material to be fact-checked by the researcher before use. Verdicts are defined only relative to the passages inside each task, not relative to the outside world. Tasks 2 and 3 are placeholders: replace every field that contains TODO: researcher to verify. Do not store quadrants here. The app computes them from consistency and verdict.",
+  "tasks": [
+    {
+      "id": "t1",
+      "question": "Tell me about the Eiffel Tower.",
+      "omitted_source_claims": [
+        "The tower was meant to stand for only 20 years."
+      ],
+      "claims": [
+        {
+          "id": "t1c1",
+          "text": "The Eiffel Tower was completed in 1889.",
+          "consistency": { "agree": 10, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t1p1"],
+          "source_wording": "The Eiffel Tower was completed in 1889.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t1c2",
+          "text": "It was built as the entrance arch for the 1900 World's Fair.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": ["1889 World's Fair", "1889 Exposition Universelle"]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": ["t1p1"],
+          "source_wording": "It was built as the entrance arch for the 1889 Exposition Universelle.",
+          "is_planted_error": true,
+          "correct_actions": ["delete", "rewrite", "use_source"]
+        },
+        {
+          "id": "t1c3",
+          "text": "Engineers Maurice Koechlin and Émile Nouguier produced the first design.",
+          "consistency": { "agree": 9, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t1p2"],
+          "source_wording": "Engineers Maurice Koechlin and Émile Nouguier produced the first design.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t1c4",
+          "text": "It remained the world's tallest man-made structure until the Chrysler Building surpassed it in 1930.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": ["1929", "1931", "the Empire State Building"]
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t1p3"],
+          "source_wording": "It remained the world's tallest man-made structure until the Chrysler Building surpassed it in 1930.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t1c5",
+          "text": "In strong winds the top sways by as much as 15 cm.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": ["7 cm", "12 cm"]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "correct_actions": ["hedge", "delete"]
+        },
+        {
+          "id": "t1c6",
+          "text": "A group of prominent artists published a protest against its construction.",
+          "consistency": { "agree": 9, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t1p4"],
+          "source_wording": "A group of prominent artists published a protest against its construction.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t1c7",
+          "text": "Eiffel first offered the design to the city of Lyon.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": ["Barcelona", "Marseille"]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": ["t1p5"],
+          "source_wording": "Eiffel first offered the design to the city of Barcelona.",
+          "is_planted_error": true,
+          "correct_actions": ["delete", "rewrite", "use_source"]
+        },
+        {
+          "id": "t1c8",
+          "text": "The tower is repainted roughly every seven years.",
+          "consistency": { "agree": 10, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t1p6"],
+          "source_wording": "The tower is repainted roughly every seven years.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t1c9",
+          "text": "Around 7 million people visit it each year, making it the most visited paid monument in the world.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": ["6 million", "10 million"]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "correct_actions": ["hedge", "delete"]
+        }
+      ],
+      "passages": [
+        {
+          "id": "t1p1",
+          "source_title": "Construction and the 1889 fair",
+          "text": "The Eiffel Tower was completed in 1889. It was built as the entrance arch to the 1889 Exposition Universelle in Paris, on the Champ de Mars. The fair marked the centenary of the French Revolution."
+        },
+        {
+          "id": "t1p2",
+          "source_title": "The first design",
+          "text": "Engineers Maurice Koechlin and Émile Nouguier produced the first design in 1884, while working for Gustave Eiffel's company. Architect Stephen Sauvestre later added decorative arches to their proposal. Eiffel then presented the revised project to the exposition commissioners."
+        },
+        {
+          "id": "t1p3",
+          "source_title": "Height record",
+          "text": "The tower remained the world's tallest man-made structure until the Chrysler Building in New York surpassed it in 1930. It had held that record since it was finished. The Chrysler Building's spire was completed in May 1930."
+        },
+        {
+          "id": "t1p4",
+          "source_title": "Artists' protest",
+          "text": "A group of prominent artists published a protest against its construction in the newspaper Le Temps in 1887. They called the planned tower a useless and monstrous structure. The signatories included painters, writers, and composers."
+        },
+        {
+          "id": "t1p5",
+          "source_title": "An earlier offer",
+          "text": "Eiffel first offered the design to the city of Barcelona. Barcelona did not take up the project. The tower was later built in Paris for the exposition."
+        },
+        {
+          "id": "t1p6",
+          "source_title": "Repainting",
+          "text": "The tower is repainted roughly every seven years to protect its iron from rust. A full campaign uses about sixty tonnes of paint. The shade of the paint has varied slightly from one campaign to the next."
+        },
+        {
+          "id": "t1p7",
+          "source_title": "Original permit",
+          "text": "The tower was meant to stand for only 20 years under the original permit. It was kept after that term because it became useful for radio transmission. Demolition plans were dropped."
+        }
+      ],
+      "extra_passages": [
+        {
+          "id": "t1e1",
+          "source_title": "Visitor numbers",
+          "text": "Around 7 million people visit the Eiffel Tower each year, and it is often described as the most visited paid monument in the world. The operating company counts ticketed entries. The exact figure changes from year to year."
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "question": "TODO: researcher to verify — What should I know about honey for a sore throat?",
+      "omitted_source_claims": [
+        "TODO: researcher to verify — Honey counts as added sugar in dietary guidance."
+      ],
+      "claims": [
+        {
+          "id": "t2c1",
+          "text": "TODO: researcher to verify — Honey is a common home remedy for a sore throat.",
+          "consistency": { "agree": 10, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t2p1"],
+          "source_wording": "TODO: researcher to verify — Honey is a common home remedy for a sore throat.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t2c2",
+          "text": "TODO: researcher to verify — Honey cures a sore throat within one hour.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": ["TODO: researcher to verify — soothes, does not cure"]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": ["t2p2"],
+          "source_wording": "TODO: researcher to verify — Honey may soothe a sore throat, but it does not cure it within one hour.",
+          "is_planted_error": true,
+          "correct_actions": ["delete", "rewrite", "use_source"]
+        },
+        {
+          "id": "t2c3",
+          "text": "TODO: researcher to verify — Honey should not be given to children under one year old.",
+          "consistency": { "agree": 9, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t2p3"],
+          "source_wording": "TODO: researcher to verify — Honey should not be given to children under one year old.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t2c4",
+          "text": "TODO: researcher to verify — A spoonful of honey before bed can ease a nighttime cough.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": [
+              "TODO: researcher to verify — two spoonfuls",
+              "TODO: researcher to verify — honey in tea",
+              "TODO: researcher to verify — no effect on cough"
+            ]
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t2p4"],
+          "source_wording": "TODO: researcher to verify — A spoonful of honey before bed can ease a nighttime cough.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t2c5",
+          "text": "TODO: researcher to verify — Honey works better than antibiotics for strep throat.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": ["TODO: researcher to verify — not compared with antibiotics"]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "correct_actions": ["hedge", "delete"]
+        },
+        {
+          "id": "t2c6",
+          "text": "TODO: researcher to verify — The World Health Organization lists honey as a demulcent for cough.",
+          "consistency": { "agree": 9, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t2p5"],
+          "source_wording": "TODO: researcher to verify — The World Health Organization lists honey as a demulcent for cough.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t2c7",
+          "text": "TODO: researcher to verify — Pasteurized honey is unsafe for adults.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "TODO: researcher to verify — safe for adults",
+              "TODO: researcher to verify — infant risk only"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": ["t2p6"],
+          "source_wording": "TODO: researcher to verify — Pasteurized honey is generally considered safe for adults.",
+          "is_planted_error": true,
+          "correct_actions": ["delete", "rewrite", "use_source"]
+        },
+        {
+          "id": "t2c8",
+          "text": "TODO: researcher to verify — Honey can be stirred into warm tea.",
+          "consistency": { "agree": 10, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t2p1"],
+          "source_wording": "TODO: researcher to verify — Honey can be stirred into warm tea.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t2c9",
+          "text": "TODO: researcher to verify — People with diabetes should avoid honey entirely.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": ["TODO: researcher to verify — small amounts in a meal plan"]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "correct_actions": ["hedge", "delete"]
+        }
+      ],
+      "passages": [
+        {
+          "id": "t2p1",
+          "source_title": "TODO: researcher to verify — Home use",
+          "text": "TODO: researcher to verify — Honey is a common home remedy for a sore throat. People often stir it into warm tea. That use is about comfort, not a promise of a cure."
+        },
+        {
+          "id": "t2p2",
+          "source_title": "TODO: researcher to verify — What honey does not do",
+          "text": "TODO: researcher to verify — Honey may soothe a sore throat, but it does not cure it within one hour. It does not replace care for an infection. Symptom relief and a cure are different claims."
+        },
+        {
+          "id": "t2p3",
+          "source_title": "TODO: researcher to verify — Infants",
+          "text": "TODO: researcher to verify — Honey should not be given to children under one year old. The concern is bacterial spores, not the taste. Caregivers are told to wait until after the first birthday."
+        },
+        {
+          "id": "t2p4",
+          "source_title": "TODO: researcher to verify — Nighttime cough",
+          "text": "TODO: researcher to verify — A spoonful of honey before bed can ease a nighttime cough. The amount in this passage is one spoonful. It is described as easing the cough, not ending the illness."
+        },
+        {
+          "id": "t2p5",
+          "source_title": "TODO: researcher to verify — Demulcent",
+          "text": "TODO: researcher to verify — The World Health Organization lists honey as a demulcent for cough. A demulcent coats the throat. The listing is about cough relief, not about antibiotics."
+        },
+        {
+          "id": "t2p6",
+          "source_title": "TODO: researcher to verify — Pasteurized honey",
+          "text": "TODO: researcher to verify — Pasteurized honey is generally considered safe for adults. The well-known restriction applies to infants. This passage does not call pasteurized honey unsafe for adults."
+        },
+        {
+          "id": "t2p7",
+          "source_title": "TODO: researcher to verify — Added sugar",
+          "text": "TODO: researcher to verify — Honey counts as added sugar in dietary guidance. A spoonful still contributes sugar to the day. Short answers about sore throats often leave this out."
+        }
+      ],
+      "extra_passages": [
+        {
+          "id": "t2e1",
+          "source_title": "TODO: researcher to verify — Diabetes",
+          "text": "TODO: researcher to verify — People with diabetes can sometimes include small amounts of honey in a meal plan. Whether that fits depends on the rest of the day's food. This passage does not say honey must be avoided entirely."
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "question": "TODO: researcher to verify — Are these wireless earbuds a good everyday pair?",
+      "omitted_source_claims": [
+        "TODO: researcher to verify — The product does not include a wall charger."
+      ],
+      "claims": [
+        {
+          "id": "t3c1",
+          "text": "TODO: researcher to verify — The case holds enough charge for about four extra full charges.",
+          "consistency": { "agree": 10, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t3p1"],
+          "source_wording": "TODO: researcher to verify — The case holds enough charge for about four extra full charges.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t3c2",
+          "text": "TODO: researcher to verify — The earbuds are waterproof enough to swim with.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": ["TODO: researcher to verify — splash resistant only"]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": ["t3p2"],
+          "source_wording": "TODO: researcher to verify — The earbuds are splash resistant (IPX4) and are not made for swimming.",
+          "is_planted_error": true,
+          "correct_actions": ["delete", "rewrite", "use_source"]
+        },
+        {
+          "id": "t3c3",
+          "text": "TODO: researcher to verify — They connect to phones with Bluetooth.",
+          "consistency": { "agree": 9, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t3p3"],
+          "source_wording": "TODO: researcher to verify — They connect to phones with Bluetooth.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t3c4",
+          "text": "TODO: researcher to verify — A full charge takes about 30 minutes.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": [
+              "TODO: researcher to verify — 20 minutes",
+              "TODO: researcher to verify — 45 minutes",
+              "TODO: researcher to verify — one hour"
+            ]
+          },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t3p4"],
+          "source_wording": "TODO: researcher to verify — A full charge takes about 30 minutes.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t3c5",
+          "text": "TODO: researcher to verify — The earbuds block 95% of office noise.",
+          "consistency": {
+            "agree": 8,
+            "total": 10,
+            "alternatives": ["TODO: researcher to verify — no noise figure given"]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "correct_actions": ["hedge", "delete"]
+        },
+        {
+          "id": "t3c6",
+          "text": "TODO: researcher to verify — Touch controls sit on the outside of each earbud.",
+          "consistency": { "agree": 9, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t3p5"],
+          "source_wording": "TODO: researcher to verify — Touch controls sit on the outside of each earbud.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t3c7",
+          "text": "TODO: researcher to verify — The manufacturer warranties the battery for five years.",
+          "consistency": {
+            "agree": 3,
+            "total": 10,
+            "alternatives": [
+              "TODO: researcher to verify — two years",
+              "TODO: researcher to verify — one year"
+            ]
+          },
+          "verdict": "REFUTED",
+          "evidence_ids": ["t3p6"],
+          "source_wording": "TODO: researcher to verify — The manufacturer warranties the battery for two years.",
+          "is_planted_error": true,
+          "correct_actions": ["delete", "rewrite", "use_source"]
+        },
+        {
+          "id": "t3c8",
+          "text": "TODO: researcher to verify — The earbuds come in black and white.",
+          "consistency": { "agree": 10, "total": 10, "alternatives": [] },
+          "verdict": "SUPPORTED",
+          "evidence_ids": ["t3p7"],
+          "source_wording": "TODO: researcher to verify — The earbuds come in black and white.",
+          "is_planted_error": false,
+          "correct_actions": ["keep"]
+        },
+        {
+          "id": "t3c9",
+          "text": "TODO: researcher to verify — Most owners replace them within eighteen months.",
+          "consistency": {
+            "agree": 4,
+            "total": 10,
+            "alternatives": ["TODO: researcher to verify — no replacement figure"]
+          },
+          "verdict": "NEI",
+          "evidence_ids": [],
+          "is_planted_error": false,
+          "correct_actions": ["hedge", "delete"]
+        }
+      ],
+      "passages": [
+        {
+          "id": "t3p1",
+          "source_title": "TODO: researcher to verify — Case battery",
+          "text": "TODO: researcher to verify — The charging case holds enough power for about four extra full charges of the earbuds. That figure is in addition to the charge already in the earbuds. A full day of use usually needs only one of those top-ups."
+        },
+        {
+          "id": "t3p2",
+          "source_title": "TODO: researcher to verify — Water resistance",
+          "text": "TODO: researcher to verify — The earbuds are rated IPX4, which covers splashes from sweat or rain. The rating does not cover swimming or submersion. They are not waterproof enough to swim with."
+        },
+        {
+          "id": "t3p3",
+          "source_title": "TODO: researcher to verify — Connection",
+          "text": "TODO: researcher to verify — They connect to phones with Bluetooth. Pairing is done from the phone's Bluetooth settings. The product page does not describe a wired listening mode."
+        },
+        {
+          "id": "t3p4",
+          "source_title": "TODO: researcher to verify — Charge time",
+          "text": "TODO: researcher to verify — A full charge of the earbuds takes about 30 minutes in the case. The case itself takes longer to refill. This passage states the 30-minute earbud charge."
+        },
+        {
+          "id": "t3p5",
+          "source_title": "TODO: researcher to verify — Controls",
+          "text": "TODO: researcher to verify — Touch controls sit on the outside of each earbud. A tap can play or pause audio. The same surface answers a call."
+        },
+        {
+          "id": "t3p6",
+          "source_title": "TODO: researcher to verify — Warranty",
+          "text": "TODO: researcher to verify — The manufacturer warranties the battery for two years. The warranty covers defects, not ordinary wear after that term. It does not promise five years of battery coverage."
+        },
+        {
+          "id": "t3p7",
+          "source_title": "TODO: researcher to verify — Colors and charger",
+          "text": "TODO: researcher to verify — The earbuds come in black and white. The box includes a charging cable. The product does not include a wall charger."
+        }
+      ],
+      "extra_passages": [
+        {
+          "id": "t3e1",
+          "source_title": "TODO: researcher to verify — How long people keep them",
+          "text": "TODO: researcher to verify — A retailer survey found that owners typically keep this model for about three years. The survey does not say that most people replace them within eighteen months. Replacement timing varies with how often the earbuds are used."
+        }
+      ]
+    }
+  ]
+}
