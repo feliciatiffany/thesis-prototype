@@ -1,0 +1,643 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/* Source map prototype. Same plain monochrome look as the canvas (src/canvas/canvas.css). */
+
+.sm {
+  position: fixed;
+  inset: var(--proto-nav-h, 0px) 0 0 0;
+  display: flex;
+  background: #fff;
+  color: #111;
+  color-scheme: light;
+  font: 13px/1.45 "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.sm *,
+.sm *::before {
+  box-sizing: border-box;
+}
+
+.sm button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sm :focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 1px;
+}
+
+.sm ::selection {
+  background: #cfcfcf;
+  color: #111;
+}
+
+/* ---------- sidebar (as .dc-side) ---------- */
+
+.sm-side {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 260px;
+  padding: 16px 10px;
+  overflow-y: auto;
+  background: #f3f3f3;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sm-brand {
+  padding: 0 8px 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sm-label {
+  padding: 0 8px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.sm-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.sm-count {
+  color: #999;
+}
+
+.sm-claim {
+  width: 100%;
+  padding: 6px 8px;
+  font: inherit;
+  resize: vertical;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.sm-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sm-sources li {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.sm-sources li:hover {
+  background: #e9e9e9;
+}
+
+.sm-sources li.is-selected {
+  background: #e1e1e1;
+}
+
+.sm .sm-source {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.sm-source .sm-dot {
+  margin-top: 5px;
+}
+
+.sm-source-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sm-source-title {
+  overflow: hidden;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sm-source-kind {
+  font-size: 11px;
+  color: #777;
+}
+
+.sm .sm-remove {
+  visibility: hidden;
+  padding: 0 8px;
+  color: #777;
+}
+
+.sm-sources li:hover .sm-remove,
+.sm .sm-remove:focus-visible {
+  visibility: visible;
+}
+
+.sm-empty {
+  padding: 5px 8px;
+  color: #777;
+}
+
+.sm-add {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+}
+
+.sm-link {
+  display: flex;
+  gap: 6px;
+}
+
+.sm-link input,
+.sm-ask input {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px;
+  font: inherit;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.sm-note {
+  margin: 0;
+  padding: 0 8px;
+  font-size: 12px;
+  color: #777;
+}
+
+.sm-foot {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding: 8px 8px 0;
+}
+
+.sm .sm-text-btn {
+  color: #777;
+}
+
+.sm .sm-text-btn:hover {
+  color: #111;
+}
+
+/* ---------- buttons (as .dc-btn) ---------- */
+
+.sm .sm-btn {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+.sm .sm-btn:hover:not(:disabled) {
+  border-color: #111;
+}
+
+.sm .sm-btn:disabled {
+  color: #999;
+  border-color: #e0e0e0;
+  cursor: default;
+}
+
+/* As the canvas's paper and question frames: the one thing to press gets the dark border. */
+.sm .sm-strong {
+  border: 1.5px solid #111;
+}
+
+.sm-error {
+  font-size: 12px;
+  font-style: italic;
+  color: #111;
+}
+
+/* ---------- main (as .dc-main, .dc-head, .dc-board) ---------- */
+
+.sm-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sm-head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sm-head-claim {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sm-board {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.sm-graph {
+  position: relative;
+  flex: 1;
+  margin: 60px 80px 70px 80px;
+  touch-action: none;
+}
+
+.sm-edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sm-edges line {
+  stroke: #111;
+  stroke-width: 1.2;
+}
+
+.sm-edges line.is-loose {
+  stroke: #bbb;
+  stroke-dasharray: 3 4;
+}
+
+.sm-edge-label {
+  position: absolute;
+  padding: 0 4px;
+  font-size: 11px;
+  color: #777;
+  white-space: nowrap;
+  pointer-events: none;
+  background: #fafafa;
+  transform: translate(-50%, -50%);
+}
+
+/* Nodes: circles from the wireframe, in the canvas frame colours. */
+.sm .sm-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  padding: 6px;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: center;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  cursor: move;
+  user-select: none;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sm .sm-node.is-supported {
+  background: #ececec;
+  border-color: #ececec;
+}
+
+.sm .sm-node.is-contested {
+  background: #cfcfcf;
+  border-color: #cfcfcf;
+}
+
+.sm .sm-node.is-unverified {
+  border-style: dashed;
+  border-color: #999;
+}
+
+.sm .sm-node.is-selected {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+
+.sm-graph-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  color: #777;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- detail (as .dc-frame) ---------- */
+
+.sm-card {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 340px;
+  max-height: calc(100% - 70px);
+  padding: 12px 14px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.sm-card p {
+  margin: 0;
+}
+
+.sm-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sm-card-stance {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 0;
+}
+
+.sm-card-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sm-card-title a {
+  color: inherit;
+}
+
+.sm-muted {
+  color: #999;
+}
+
+/* As .dc-quote */
+.sm-card blockquote {
+  margin: 0;
+  padding-left: 8px;
+  color: #555;
+  border-left: 2px solid #111;
+}
+
+.sm-card blockquote.is-unchecked {
+  border-left-style: dashed;
+}
+
+.sm-quote-check {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #777;
+}
+
+.is-unchecked .sm-quote-check {
+  font-style: italic;
+  color: #111;
+}
+
+.sm-ask {
+  display: flex;
+  gap: 6px;
+}
+
+.sm-answer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 6px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.sm-example {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+}
+
+.sm-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.sm-dot.is-supported {
+  background: #ececec;
+  border: 1px solid #bbb;
+}
+
+.sm-dot.is-contested {
+  background: #999;
+}
+
+.sm-dot.is-unverified {
+  background: #fff;
+  border: 1px dashed #777;
+}
+
+
+/* ---------- relation map ---------- */
+
+.sm-board.has-card .sm-graph {
+  margin-right: 360px;
+}
+
+.sm-edges line {
+  transition: opacity 0.15s;
+}
+
+.sm-edges line.is-dim,
+.sm .sm-edge-label.is-dim {
+  opacity: 0.25;
+}
+
+.sm .sm-edge-label {
+  cursor: pointer;
+  pointer-events: auto;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.sm .sm-edge-label:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+.sm-label.sm-flush {
+  padding: 0;
+}
+
+.sm-rels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 4px 0 0;
+  padding: 10px 0 0;
+  list-style: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+.sm-rels li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sm-rel-head strong {
+  font-weight: 600;
+}
+
+.sm .sm-dig {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+/* ---------- chat (right) ---------- */
+
+.sm-chat {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 340px;
+  border-left: 1px solid #e0e0e0;
+}
+
+.sm-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.sm-messages p {
+  margin: 0;
+}
+
+.sm-user {
+  align-self: flex-end;
+  max-width: 85%;
+  padding: 6px 10px;
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.sm-assistant {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1.6;
+}
+
+.sm-assistant.is-error {
+  font-style: italic;
+  color: #777;
+}
+
+.sm-chat-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding-left: 8px;
+  font-size: 12px;
+  color: #555;
+  border-left: 2px solid #111;
+}
+
+.sm-chat-quote span {
+  font-size: 11px;
+  color: #999;
+}
+
+.sm-recs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sm-recs li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 8px 10px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.sm-rec-title {
+  font-weight: 500;
+  color: #111;
+}
+
+.sm-rec-why {
+  font-size: 12px;
+  color: #555;
+}
+
+.sm-form {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  padding: 12px 16px 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.sm-form textarea {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  font: inherit;
+  resize: none;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}

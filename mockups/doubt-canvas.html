@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-sans); color: var(--foreground); }
+  .wrap { width: 100%; max-width: 712px; }
+
+  .app { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card); }
+  .top { height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .top .title { font-weight: 600; }
+  .top .crumb { color: var(--muted-foreground); }
+  .top .sp { flex: 1; }
+  .pill { border: 1px solid var(--border); border-radius: 999px; padding: 3px 9px; font-size: 11px; color: var(--muted-foreground); display: inline-flex; gap: 5px; align-items: center; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); display: inline-block; }
+  .btn { background: var(--primary); color: var(--primary-foreground); border-radius: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; }
+
+  .body { display: flex; height: 520px; }
+  .side { width: 150px; border-right: 1px solid var(--border); padding: 10px 8px; font-size: 11.5px; flex-shrink: 0; }
+  .side h4 { margin: 4px 4px 6px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-foreground); font-weight: 600; }
+  .f { padding: 3px 4px; border-radius: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .f.i1 { padding-left: 14px; } .f.i2 { padding-left: 24px; color: var(--muted-foreground); }
+  .f.on { background: var(--accent); color: var(--accent-foreground); }
+  .ic { display: inline-block; width: 14px; }
+
+  .canvas { position: relative; flex: 1; overflow: hidden;
+    background-color: var(--background);
+    background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 16px 16px; }
+  svg.lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+  .frame { position: absolute; background: var(--card); border: 1px solid var(--border); border-radius: 8px; font-size: 11px; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .frame .lbl { position: absolute; top: -16px; left: 2px; font-size: 9.5px; color: var(--muted-foreground); white-space: nowrap; }
+  .frame .hd { padding: 6px 9px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: 10.5px; display: flex; justify-content: space-between; }
+  .frame .bd { padding: 8px 9px; line-height: 1.75; }
+
+  .u { text-decoration-line: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .solid { text-decoration-color: color-mix(in srgb, var(--success) 55%, transparent); }
+  .shaky { text-decoration-color: var(--warning); text-decoration-style: dashed; }
+  .wrong { text-decoration-color: var(--destructive); text-decoration-style: wavy; }
+  .spec { text-decoration-color: var(--info); text-decoration-style: dotted; }
+  sup.s { font-size: 8.5px; color: var(--muted-foreground); border: 1px solid var(--border); border-radius: 3px; padding: 0 3px; margin-left: 2px; }
+
+  .pop { position: absolute; background: var(--popover); color: var(--popover-foreground); border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; font-size: 10.5px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .pop .q { font-weight: 600; margin-bottom: 6px; display: flex; gap: 6px; align-items: center; }
+  .tag { font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 999px; color: var(--destructive); border: 1px solid var(--destructive); }
+  .row { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; color: var(--muted-foreground); }
+  .row b { color: var(--popover-foreground); font-weight: 600; }
+  .bar { display: flex; gap: 2px; margin-top: 2px; }
+  .bar i { width: 12px; height: 5px; border-radius: 2px; background: var(--border); }
+  .bar i.y { background: var(--destructive); }
+  .acts { display: flex; gap: 5px; margin-top: 7px; }
+  .acts span { white-space: nowrap; border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 10px; }
+
+  .paper .bd { line-height: 1.45; }
+  .meta { color: var(--muted-foreground); font-size: 9.5px; }
+  .hl { background: color-mix(in srgb, var(--info) 22%, transparent); border-bottom: 2px dotted var(--info); }
+
+  .branch { border-color: color-mix(in srgb, var(--chart-4) 70%, var(--border)); }
+  .branch .bd { line-height: 1.45; }
+  .ans { margin-top: 5px; padding-top: 5px; border-top: 1px dashed var(--border); color: var(--muted-foreground); }
+
+  .video .thumb { height: 66px; margin: 6px; border-radius: 5px; background: linear-gradient(135deg, color-mix(in srgb, var(--chart-2) 45%, var(--card)), color-mix(in srgb, var(--chart-5) 45%, var(--card))); display: grid; place-items: center; font-size: 18px; color: #fff; }
+
+  .sticky { position: absolute; background: #fde68a; color: #3f3a1d; border-radius: 3px; padding: 8px 9px; font-size: 10.5px; line-height: 1.4; box-shadow: 0 2px 4px rgba(0,0,0,.18); }
+  .sticky .who { font-size: 9px; opacity: .7; margin-top: 4px; }
+
+  .chip { position: absolute; font-size: 9.5px; padding: 1px 6px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); white-space: nowrap; }
+
+  .zoom { position: absolute; right: 8px; bottom: 8px; display: flex; gap: 6px; align-items: flex-end; }
+  .mini { width: 78px; height: 50px; border: 1px solid var(--border); border-radius: 5px; background: var(--card); position: relative; }
+  .mini i { position: absolute; background: var(--muted-foreground); opacity: .35; border-radius: 1px; }
+  .mini .vp { position: absolute; border: 1.5px solid var(--primary); border-radius: 2px; left: 18px; top: 8px; width: 40px; height: 30px; }
+  .zbtn { border: 1px solid var(--border); background: var(--card); border-radius: 5px; font-size: 10.5px; padding: 3px 7px; }
+
+  .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; font-size: 12px; }
+  .lg { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
+  .lg h5 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-foreground); }
+  .lg div { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .lg .sw { width: 54px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="app">
+    <div class="top">
+      <span class="title">Handwriting vs typing</span>
+      <span class="crumb">/ Thesis lit review</span>
+      <span class="sp"></span>
+      <span class="pill"><span class="dot"></span>Harness: 4 models · 3 databases</span>
+      <span class="btn">Recheck all</span>
+    </div>
+    <div class="body">
+      <div class="side">
+        <h4>My folders</h4>
+        <div class="f"><span class="ic">▾</span>Thesis lit review</div>
+        <div class="f i1 on"><span class="ic">▣</span>Handwriting vs typing</div>
+        <div class="f i2">📄 Mueller 2014.pdf</div>
+        <div class="f i2">📄 Urry 2021.pdf</div>
+        <div class="f i2">📄 Morehead 2019.pdf</div>
+        <div class="f i2">🎞 lecture-clip.mp4</div>
+        <div class="f i2">🔗 nytimes.com/…</div>
+        <div class="f i1"><span class="ic">▣</span>Memory & attention</div>
+        <div class="f"><span class="ic">▸</span>Studio class</div>
+        <div class="f"><span class="ic">▸</span>Archive</div>
+        <h4 style="margin-top:14px">Add to canvas</h4>
+        <div class="f">＋ Sticky note</div>
+        <div class="f">＋ PDF, image, video, link</div>
+        <div class="f">＋ Ask AI</div>
+      </div>
+
+      <div class="canvas">
+        <svg class="lines" viewBox="0 0 560 520" preserveAspectRatio="none">
+          <defs>
+            <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="var(--muted-foreground)"/>
+            </marker>
+          </defs>
+          <!-- provenance: where a sentence came from -->
+          <path d="M140,96 C90,130 80,200 82,268" stroke="var(--muted-foreground)" stroke-width="1" stroke-dasharray="3 3" fill="none" marker-end="url(#arr)"/>
+          <path d="M200,212 C205,280 215,320 228,356" stroke="var(--muted-foreground)" stroke-width="1" stroke-dasharray="3 3" fill="none" marker-end="url(#arr)"/>
+          <!-- user-made connection -->
+          <path d="M160,340 C178,350 170,392 186,402" stroke="var(--foreground)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- ask / branch -->
+          <path d="M456,230 C484,226 492,214 492,204" stroke="var(--chart-4)" stroke-width="1.8" stroke-dasharray="1 4" stroke-linecap="round" fill="none"/>
+          <path d="M100,372 C90,385 84,396 82,412" stroke="var(--chart-4)" stroke-width="1.8" stroke-dasharray="1 4" stroke-linecap="round" fill="none"/>
+        </svg>
+
+        <!-- AI answer -->
+        <div class="frame" style="left:130px; top:22px; width:268px;">
+          <span class="lbl">AI answer · rechecked 2 min ago</span>
+          <div class="hd"><span>Does handwriting beat typing for memory?</span><span class="meta">✦</span></div>
+          <div class="bd">
+            <span class="u solid">Mueller &amp; Oppenheimer found longhand note-takers did better on conceptual questions.</span><sup class="s">1</sup>
+            <span class="u wrong">Handwriting always improves memory more than typing.</span>
+            <span class="u shaky">Later replications found smaller or no differences.</span><sup class="s">2</sup>
+            <span class="u spec">This is probably because writing forces you to summarize.</span>
+          </div>
+        </div>
+
+        <!-- doubt popover on the red sentence -->
+        <div class="pop" style="left:250px; top:200px; width:206px;">
+          <div class="q"><span class="tag">Confidently wrong</span></div>
+          <div class="row"><span>Asked 5 times, same answer</span><b>4 / 5</b></div>
+          <div class="bar"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i></div>
+          <div class="row" style="margin-top:4px"><span>Sources</span><b>Refuted by Urry 2021</b></div>
+          <div class="row"><span>Other models</span><b>2 of 4 hedge</b></div>
+          <div class="acts"><span>↻ Ask again</span><span>⑂ Branch</span><span>See source</span></div>
+        </div>
+
+        <!-- branch question -->
+        <div class="frame branch" style="left:428px; top:20px; width:124px;">
+          <span class="lbl">Branch</span>
+          <div class="bd"><b>Why "always"?</b> Which studies tested memory a week later?
+            <div class="ans">→ Only 1 of 3 studies did. Effect faded.</div>
+          </div>
+        </div>
+
+        <!-- papers -->
+        <div class="frame paper" style="left:10px; top:270px; width:150px;">
+          <span class="lbl">PDF</span>
+          <div class="bd"><b>The Pen Is Mightier Than the Keyboard</b>
+            <div class="meta">Mueller &amp; Oppenheimer · 2014</div>
+            <div style="margin-top:4px">…better on <span class="hl">conceptual</span> questions…</div>
+          </div>
+        </div>
+        <div class="frame paper" style="left:186px; top:360px; width:150px;">
+          <span class="lbl">PDF</span>
+          <div class="bd"><b>Don't Ditch the Laptop Just Yet</b>
+            <div class="meta">Urry et al. · 2021 · replication</div>
+            <div style="margin-top:4px">No reliable advantage for longhand.</div>
+          </div>
+        </div>
+        <span class="chip" style="left:128px; top:366px;">contradicts</span>
+
+        <!-- sticky + video -->
+        <div class="sticky" style="left:12px; top:414px; width:132px;">
+          What counts as "conceptual"? Ask in branch.
+          <div class="who">— question on a highlighted word</div>
+        </div>
+        <div class="frame video" style="left:392px; top:344px; width:150px;">
+          <span class="lbl">Video</span>
+          <div class="thumb">▶</div>
+          <div class="meta" style="padding:0 8px 7px">lecture-clip.mp4 · 2:14</div>
+        </div>
+
+        <div class="zoom">
+          <div class="mini">
+            <i style="left:22px;top:12px;width:22px;height:10px"></i>
+            <i style="left:6px;top:28px;width:12px;height:8px"></i>
+            <i style="left:28px;top:30px;width:12px;height:8px"></i>
+            <i style="left:50px;top:28px;width:12px;height:9px"></i>
+            <i style="left:60px;top:6px;width:10px;height:8px"></i>
+            <div class="vp"></div>
+          </div>
+          <span class="zbtn">− 64% ＋</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="lg">
+      <h5>Doubt underlines</h5>
+      <div><span class="sw u solid">solid</span>Sources agree, the AI answers the same way every time</div>
+      <div><span class="sw u shaky">shaky</span>Sourced, but the AI wobbles when asked again</div>
+      <div><span class="sw u wrong">wrong</span>The AI is sure, but the sources refute it</div>
+      <div><span class="sw u spec">guess</span>No source covers it; the AI is speculating</div>
+    </div>
+    <div class="lg">
+      <h5>Three kinds of lines</h5>
+      <div><svg class="sw" height="10"><line x1="0" y1="5" x2="54" y2="5" stroke="var(--muted-foreground)" stroke-dasharray="3 3"/></svg>Where it came from (drawn by the tool)</div>
+      <div><svg class="sw" height="10"><line x1="0" y1="5" x2="54" y2="5" stroke="var(--foreground)" stroke-width="2.5" stroke-linecap="round"/></svg>Your own link, with a label</div>
+      <div><svg class="sw" height="10"><line x1="2" y1="5" x2="54" y2="5" stroke="var(--chart-4)" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/></svg>A question you branched off</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
