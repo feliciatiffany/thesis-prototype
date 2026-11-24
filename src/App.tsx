@@ -1,7 +1,9 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DebugPanel } from "./components/DebugPanel.tsx";
 import { RestartButton } from "./components/RestartButton.tsx";
 import { ChatView } from "./components/ChatView.tsx";
+import { ProtoNav } from "./components/ProtoNav.tsx";
 import { readStudyParams } from "./lib/assignment.ts";
 import { validateStudyContent } from "./lib/validate.ts";
 import { AdminScreen } from "./screens/AdminScreen.tsx";
@@ -10,6 +12,11 @@ import { InstructionScreen } from "./screens/InstructionScreen.tsx";
 import { EndScreen } from "./screens/EndScreen.tsx";
 import { QuestionnaireScreen } from "./screens/QuestionnaireScreen.tsx";
 import { useStudy } from "./store/useStudy.ts";
+
+// The canvas prototype is its own page. It loads only when someone opens /canvas.
+const CanvasApp = lazy(() => import("./canvas/CanvasApp.tsx").then((m) => ({ default: m.CanvasApp })));
+const MapApp = lazy(() => import("./map/MapApp.tsx").then((m) => ({ default: m.MapApp })));
+const TrailApp = lazy(() => import("./trail/TrailApp.tsx").then((m) => ({ default: m.TrailApp })));
 
 function StudyApp() {
   const problems = validateStudyContent();
@@ -60,8 +67,33 @@ function StudyApp() {
 export function App() {
   return (
     <BrowserRouter>
+      <ProtoNav />
       <Routes>
         <Route path="/admin" element={<AdminScreen />} />
+        <Route
+          path="/canvas"
+          element={
+            <Suspense fallback={null}>
+              <CanvasApp />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <Suspense fallback={null}>
+              <MapApp />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/trail"
+          element={
+            <Suspense fallback={null}>
+              <TrailApp />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<StudyApp />} />
       </Routes>
     </BrowserRouter>

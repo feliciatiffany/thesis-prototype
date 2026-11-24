@@ -1,0 +1,673 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/* The canvas prototype. Greyscale on purpose: no colour until the idea is tested. */
+
+.dc {
+  position: fixed;
+  inset: var(--proto-nav-h, 0px) 0 0 0;
+  display: flex;
+  background: #fff;
+  color: #111;
+  color-scheme: light;
+  font: 13px/1.45 "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dc *,
+.dc *::before {
+  box-sizing: border-box;
+}
+
+.dc button {
+  cursor: pointer;
+}
+
+.dc :focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 1px;
+}
+
+.dc ::selection {
+  background: #cfcfcf;
+  color: #111;
+}
+
+/* ---------- folders ---------- */
+
+.dc-side {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 2px;
+  width: 220px;
+  padding: 16px 10px;
+  overflow-y: auto;
+  background: #f3f3f3;
+  border-right: 1px solid #e0e0e0;
+}
+
+.dc-brand {
+  padding: 0 8px 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dc-side-label {
+  padding: 0 8px 4px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.dc-row {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.dc-row:hover {
+  background: #e9e9e9;
+}
+
+.dc-row.is-active {
+  background: #e1e1e1;
+  font-weight: 500;
+}
+
+.dc-row-open {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+  min-width: 0;
+  padding: 5px 0;
+  text-align: left;
+}
+
+.dc-row-sign {
+  flex: none;
+  width: 10px;
+  color: #777;
+}
+
+.dc-row-name,
+.dc-file {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dc-row-x {
+  visibility: hidden;
+  padding: 0 8px;
+  color: #777;
+}
+
+.dc-row:hover .dc-row-x,
+.dc-row-x:focus-visible {
+  visibility: visible;
+}
+
+.dc-file {
+  display: block;
+  width: 100%;
+  padding: 4px 8px 4px 46px;
+  border-radius: 6px;
+  text-align: left;
+  color: #555;
+}
+
+.dc-file:hover,
+.dc-new:hover {
+  background: #e9e9e9;
+}
+
+.dc-new {
+  width: 100%;
+  padding: 5px 8px;
+  border-radius: 6px;
+  text-align: left;
+  color: #777;
+}
+
+.dc-reset {
+  margin-top: auto;
+}
+
+.dc-rename {
+  margin: 1px 0;
+}
+
+/* ---------- board ---------- */
+
+.dc-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dc-none {
+  align-items: center;
+  justify-content: center;
+  color: #777;
+}
+
+.dc-head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dc-path {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.dc-path-step {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.dc-path-sep {
+  margin: 0 6px;
+  color: #999;
+}
+
+.dc-path button {
+  overflow: hidden;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #555;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dc-path button:hover {
+  background: #ececec;
+  color: #111;
+}
+
+.dc-path button.is-here {
+  color: #111;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.dc-btn {
+  flex: none;
+  padding: 4px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  background: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dc-btn:hover {
+  border-color: #111;
+}
+
+.dc-btn:disabled {
+  color: #999;
+  border-color: #e0e0e0;
+  cursor: default;
+}
+
+.dc-error {
+  color: #111;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.dc-board {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  /* clip, not hidden: typing in a frame near the edge must not scroll the board. */
+  overflow: clip;
+  background: #fafafa;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.dc-board.is-panning {
+  cursor: grabbing;
+}
+
+.dc-board.is-connecting,
+.dc-board.is-connecting * {
+  cursor: crosshair !important;
+}
+
+.dc-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+}
+
+/* ---------- frames ---------- */
+
+.dc-frame {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  cursor: move;
+}
+
+.dc-frame.is-picked {
+  outline: calc(2px / var(--k)) solid #111;
+  outline-offset: calc(3px / var(--k));
+}
+
+.dc-paper,
+.dc-question {
+  border: 1.5px solid #111;
+}
+
+/* Closed frame: a box that holds another canvas. Zoom in / Open / i / double-click to enter. */
+.dc-frame.is-closed {
+  justify-content: flex-start;
+  background: #f7f7f7;
+}
+
+.dc-frame.is-closed .dc-hint {
+  margin-top: auto;
+}
+
+.dc-sticky {
+  background: #ececec;
+  border-color: #ececec;
+}
+
+.dc-label {
+  font-size: 11px;
+  color: #777;
+}
+
+.dc-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dc-heading {
+  font-weight: 600;
+}
+
+.dc-hint {
+  color: #999;
+}
+
+.dc-quote {
+  padding-left: 8px;
+  border-left: 2px solid #111;
+  color: #555;
+}
+
+/* Loose line spacing leaves an empty lane under each line for lines to run along. */
+.dc-text {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  cursor: text;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.dc-paper .dc-text {
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+/* Underlines. One style, same as the lines. */
+.dc-mark {
+  text-decoration-line: underline;
+  text-decoration-color: #111;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* Image, video, link */
+.dc-image,
+.dc-video,
+.dc-link {
+  padding: 8px;
+}
+
+.dc-media {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border-radius: 4px;
+  background: #f1f1f1;
+  object-fit: contain;
+}
+
+.dc-blank {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  min-height: 40px;
+  color: #555;
+}
+
+.dc-linkcard {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px 6px;
+  overflow: hidden;
+  color: #111;
+  cursor: pointer;
+}
+
+.dc-linkcard span {
+  overflow: hidden;
+  color: #777;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: default;
+}
+
+.dc-input {
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: text;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.dc-input::placeholder {
+  color: #999;
+}
+
+.dc-area {
+  display: block;
+  overflow: hidden;
+  resize: none;
+}
+
+.dc-resize {
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1.5px solid #111;
+  cursor: nwse-resize;
+}
+
+/* ---------- lines ---------- */
+
+.dc-edges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.dc-edge-line {
+  fill: none;
+  stroke-linejoin: round;
+}
+
+.dc-edge-hit {
+  fill: none;
+  stroke: transparent;
+  cursor: pointer;
+  pointer-events: stroke;
+}
+
+.dc-edge-line {
+  stroke: #111;
+}
+
+/* ---------- floating controls ---------- */
+
+.dc-bar {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 8px;
+  background: #111;
+  cursor: default;
+}
+
+.dc-bar button {
+  padding: 3px 9px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.dc-bar button:hover {
+  background: #444;
+}
+
+.dc-bar :focus-visible {
+  outline-color: #fff;
+  outline-offset: -2px;
+}
+
+.dc-words {
+  transform: translate(-50%, calc(-100% - 8px));
+}
+
+.dc-banner {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  font-size: 12px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.dc-zoom {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  background: #fff;
+  cursor: default;
+}
+
+.dc-zoom button {
+  min-width: 26px;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.dc-zoom button:hover {
+  background: #ececec;
+}
+
+.dc-zoom span {
+  min-width: 44px;
+  text-align: center;
+  color: #555;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- lines you drag, and the drop-down on a drawn line ---------- */
+
+/* Drag from here: onto a frame to connect, onto empty space to ask the AI. */
+.dc-handle {
+  position: absolute;
+  z-index: 5;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  cursor: crosshair;
+  background: #fff;
+  border: 1.5px solid #111;
+  border-radius: 50%;
+  touch-action: none;
+}
+
+.dc-handle:hover {
+  background: #111;
+}
+
+.dc-wire {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.dc-wire line {
+  stroke: #111;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+.dc-wire circle {
+  fill: #111;
+}
+
+.dc-linemenu {
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 320px;
+  max-height: 340px;
+  padding: 10px 12px;
+  overflow-y: auto;
+  cursor: default;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+  transform: translate(-50%, 12px);
+}
+
+.dc-linemenu-ends {
+  display: flex;
+  gap: 2px;
+  align-items: baseline;
+  font-size: 11px;
+  color: #777;
+}
+
+.dc-linemenu-ends span:not(.dc-path-sep) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dc-linemenu-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.dc-linemenu-tabs button {
+  flex: 1;
+  padding: 4px 6px;
+  white-space: nowrap;
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+.dc-linemenu-tabs button:hover {
+  border-color: #111;
+}
+
+.dc-linemenu-tabs button.is-on {
+  color: #fff;
+  background: #111;
+  border-color: #111;
+}
+
+.dc-linemenu-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-linemenu-body p {
+  margin: 0;
+}
+
+.dc-linemenu-cite {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #999;
+}
+
+.dc-linemenu-again,
+.dc-linemenu-foot button {
+  align-self: flex-start;
+  padding: 0;
+  font-size: 12px;
+  color: #777;
+  background: none;
+  border: 0;
+}
+
+.dc-linemenu-again:hover,
+.dc-linemenu-foot button:hover {
+  color: #111;
+}
+
+.dc-linemenu-foot {
+  padding-top: 6px;
+  border-top: 1px solid #eee;
+}
+
+.dc-follows {
+  font-size: 11px;
+}

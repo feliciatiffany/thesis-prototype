@@ -1,0 +1,601 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/* Paper trail prototype. Plain white like the canvas; colour only on the trail (chat study tokens). */
+
+.pt {
+  position: fixed;
+  inset: var(--proto-nav-h, 0px) 0 0 0;
+  display: flex;
+  background: #fff;
+  color: #111;
+  color-scheme: light;
+  font: 13px/1.45 "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.pt *,
+.pt *::before {
+  box-sizing: border-box;
+}
+
+.pt :focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 1px;
+}
+
+.pt-head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pt-hint {
+  margin: 0;
+  color: #999;
+}
+
+/* As .dc-btn */
+.pt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+.pt-btn:hover:not(:disabled) {
+  border-color: #111;
+}
+
+.pt-btn:disabled {
+  color: #999;
+  border-color: #e0e0e0;
+  cursor: default;
+}
+
+.pt-text-btn {
+  margin-top: auto;
+  padding: 0 16px 16px;
+  font: inherit;
+  text-align: left;
+  color: #777;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.pt-text-btn:hover {
+  color: #111;
+}
+
+/* ---------- left: library (as .dc-side) ---------- */
+
+.pt-library {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 240px;
+  background: #f3f3f3;
+  border-right: 1px solid #e0e0e0;
+}
+
+.pt-library .pt-head {
+  border-bottom-color: #e0e0e0;
+}
+
+.pt-papers {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 10px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.pt-papers li {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.pt-papers li:hover {
+  background: #e9e9e9;
+}
+
+.pt-papers li.pt-hint {
+  padding: 5px 8px;
+}
+
+.pt-paper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 5px 8px;
+}
+
+.pt-paper-title {
+  overflow: hidden;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pt-paper-meta {
+  font-size: 11px;
+  color: #777;
+}
+
+.pt-remove {
+  visibility: hidden;
+  padding: 0 8px;
+  font: inherit;
+  color: #777;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.pt-papers li:hover .pt-remove,
+.pt-remove:focus-visible {
+  visibility: visible;
+}
+
+.pt-add {
+  margin: 0 18px;
+}
+
+.pt-note {
+  padding: 6px 18px 0;
+  font-size: 12px;
+}
+
+/* ---------- middle: trail ---------- */
+
+.pt-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pt-empty {
+  margin: auto;
+  color: #999;
+}
+
+.pt-trail {
+  position: relative;
+  flex: 1;
+  padding: 28px 24px;
+  overflow: auto;
+}
+
+.pt-answer {
+  max-width: calc(100% - 320px);
+  margin: 0;
+  font-size: 14px;
+  line-height: 2.2;
+  white-space: pre-line;
+}
+
+.pt-tip {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+/* A traced phrase: boxed in its source's colour. */
+.pt-mark {
+  padding: 2px 8px;
+  cursor: default;
+  background: color-mix(in srgb, var(--c) 10%, #fff);
+  border: 1px solid var(--c);
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: opacity 0.15s;
+}
+
+.pt-mark.is-on {
+  background: color-mix(in srgb, var(--c) 22%, #fff);
+}
+
+.pt-mark.is-dim,
+.pt-card.is-dim,
+.pt-lines .is-dim {
+  opacity: 0.3;
+}
+
+/* In the chat: just an underline in the source colour. */
+.pt-mark.is-quiet {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--c);
+  border-radius: 0;
+}
+
+.pt-mark.is-quiet.is-on {
+  background: color-mix(in srgb, var(--c) 14%, #fff);
+}
+
+.pt-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pt-lines path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+}
+
+.pt-lines circle {
+  fill: currentColor;
+}
+
+.pt-lines g {
+  transition: opacity 0.15s;
+}
+
+.pt-lines .is-on path {
+  stroke-width: 2;
+}
+
+/* As .dc-frame */
+.pt-card {
+  position: absolute;
+  right: 24px;
+  width: 236px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  transition:
+    opacity 0.15s,
+    border-color 0.15s;
+}
+
+.pt-card.is-on {
+  border-color: var(--c);
+}
+
+.pt-cite {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 11px;
+  color: #777;
+}
+
+.pt-cite-text {
+  min-width: 0;
+}
+
+.pt-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--c);
+  border-radius: 50%;
+}
+
+.pt-card blockquote {
+  margin: 4px 0 0;
+}
+
+/* ---------- right: assistant ---------- */
+
+.pt-chat {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 340px;
+  border-left: 1px solid #e0e0e0;
+}
+
+.pt-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.pt-user {
+  align-self: flex-end;
+  max-width: 85%;
+  margin: 0;
+  padding: 6px 10px;
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.pt-assistant {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pt-assistant.is-error {
+  font-style: italic;
+  color: #777;
+}
+
+.pt-answer-btn {
+  padding: 6px 8px;
+  margin: 0 -8px;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.pt-answer-btn:hover {
+  border-color: #e0e0e0;
+}
+
+.pt-answer-btn.is-shown {
+  border-color: #cfcfcf;
+}
+
+.pt-form {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  padding: 12px 16px 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pt-form textarea {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  font: inherit;
+  resize: none;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+/* ---------- main doc, notes, branch, recommendations ---------- */
+
+.pt-label {
+  padding: 12px 18px 4px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.pt-label.pt-flush {
+  padding: 0;
+}
+
+.pt-main-doc {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  padding: 5px 8px;
+  background: #e1e1e1;
+  border-radius: 6px;
+}
+
+.pt-papers {
+  padding-top: 0;
+}
+
+.pt-pad {
+  padding: 5px 8px;
+}
+
+a.pt-paper-title {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.pt-paper-title:hover {
+  text-decoration: underline;
+}
+
+.pt-head-row {
+  gap: 8px;
+}
+
+.pt-head-title {
+  flex: 1;
+}
+
+.pt-chat .pt-head-title,
+.pt-main .pt-head-title {
+  flex: none;
+}
+
+.pt-status {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pt-error {
+  font-size: 12px;
+  font-style: italic;
+  color: #111;
+}
+
+.pt-chat .pt-head-row .pt-btn {
+  margin-left: auto;
+  font-weight: 400;
+}
+
+.pt-main .pt-head-row .pt-btn {
+  font-weight: 400;
+}
+
+/* As the canvas's paper and question frames: the main action gets the dark border. */
+.pt-strong {
+  border: 1.5px solid #111;
+}
+
+.pt-editor {
+  flex: 1;
+  margin: 0;
+  padding: 28px 24px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 2.2;
+  resize: none;
+  border: 0;
+  outline: none;
+}
+
+.pt-mark {
+  cursor: pointer;
+}
+
+.pt-uncovered {
+  cursor: pointer;
+  text-decoration: underline dotted var(--src-none);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: opacity 0.15s;
+}
+
+.pt-uncovered.is-dim {
+  opacity: 0.3;
+}
+
+.pt-card {
+  cursor: pointer;
+}
+
+.pt-unfound {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-style: italic;
+  color: #111;
+}
+
+.pt-branch {
+  padding: 12px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pt-branch-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.pt-remove.pt-show {
+  visibility: visible;
+  padding: 0 4px;
+}
+
+.pt-branch-sentence {
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+.pt-branch-quote {
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.pt-user-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.pt-about {
+  margin: 0;
+  font-size: 11px;
+  color: #777;
+}
+
+.pt-assistant p {
+  margin: 0;
+}
+
+.pt-assistant {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pt-chat-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding-left: 8px;
+  font-size: 12px;
+  color: #555;
+  border-left: 2px solid #111;
+}
+
+.pt-chat-quote .pt-cite-text {
+  font-size: 11px;
+  color: #999;
+}
+
+.pt-recs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pt-recs li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 8px 10px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.pt-rec-title {
+  font-weight: 500;
+  color: #111;
+}
+
+.pt-rec-why {
+  font-size: 12px;
+  color: #555;
+}
+
+.pt-rec-add {
+  margin-top: 4px;
+  font-size: 12px;
+}

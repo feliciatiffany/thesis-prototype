@@ -98,19 +98,25 @@ export function ClaimSpan({
         </span>
       );
     }
+    // A button is inline-block, so spaces at its edges collapse away.
+    // Keep them outside the button so "in 1889" doesn't render as "in1889".
+    const [, lead, core, trail] = value.match(/^(\s*)([\s\S]*?)(\s*)$/)!;
     return (
-      <button
-        key={key}
-        type="button"
-        className={`bare cursor-pointer rounded-sm ${line}`}
-        aria-describedby={descId}
-        onMouseEnter={() => {
-          if (style !== "none") hoverClaim(messageId, claim.id);
-        }}
-        onClick={onOpen}
-      >
-        {value}
-      </button>
+      <span key={key}>
+        {lead ? <span className={line}>{lead}</span> : null}
+        <button
+          type="button"
+          className={`bare cursor-pointer rounded-sm ${line}`}
+          aria-describedby={descId}
+          onMouseEnter={() => {
+            if (style !== "none") hoverClaim(messageId, claim.id);
+          }}
+          onClick={onOpen}
+        >
+          {core}
+        </button>
+        {trail ? <span className={line}>{trail}</span> : null}
+      </span>
     );
   };
 
